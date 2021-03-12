@@ -7,6 +7,29 @@
   <title>D3-demo</title>
 </head>
 <body>
-  
+  <p>hehehe</p>
+  <p>hehehe</p>
+  <p>hehehe</p>
+  <p>hehehe</p>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    var paragraphs = document.getElementsByTagName("p");
+    // for (var i = 0; i < paragraphs.length; i++) {
+    //   var paragraph = paragraphs.item(i);
+    //   paragraph.style.setProperty("color", "blue", null);
+    //   d3.select("body").style("background-color", "pink");
+    // }
+    // d3.selectAll("p").style("color", function() {
+    //   return "hsl(" + Math.random() * 360 + ",100%,50%)";
+    // });
+    // d3.select("body")
+    //   .selectAll("p")
+    //   .data([4, 8, 15, 16, 23, 42])
+    //   .enter().append("p")
+    //   .text(function(d) { return "I’m number " + d + "!"; });
+
+    d3.select("body").transition()
+      .style("background-color", "pink");
+  </script>
 </body>
 </html>
