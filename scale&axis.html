@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    let svg = d3.select('body').append('svg').attr('height', 400).attr('width', 400);
+
+    // 比例尺
+    let xScale = d3.scaleLinear().domain([0, 20]).range([0, 300]);
+    let yScale = d3.scaleLinear().domain([0, 40]).range([270, 0]);
+    // 坐标轴
+    let xAxis = d3.axisBottom(xScale);
+    let yAxis = d3.axisRight(yScale);
+    // 添加坐标轴
+    svg.append('g')
+    .attr('class', 'xAxis')
+    .call(xAxis)
+    .attr('transform', 'translate(50, 270)');
+
+    svg.append('g')
+    .attr('class', 'yAxis')
+    .call(yAxis)
+    .attr('transform', 'translate(50, 0)');
+  </script>
+</body>
+</html>
