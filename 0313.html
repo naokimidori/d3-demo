@@ -18,6 +18,12 @@
     body.selectAll('p').style('color', 'white');
     body.select('p').style('color', 'red');
 
+    // 插入
+    body.insert('p').text('hello world -3');
+    body.insert('p','p:first-of-type').text('insert-p');
+
+    // 删除
+    body.select('p:last-of-type').remove();
     </script>
 </body>
 </html>
