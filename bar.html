@@ -23,13 +23,12 @@
     // 柱状图间距
     const barPadding = 10;
     // 柱状图宽度(包含间距)
-    const barwidth = (width - margin.right - margin.left) / data.length;
-
+    const barWidth = (width - margin.right - margin.left) / data.length;
     let svg = d3.select('body').append('svg').attr('height', height).attr('width', width);
 
     // 比例尺
     let xScale = d3.scaleLinear()
-                   .domain([0, data.legnth])
+                   .domain([0, data.length])
                    .range([margin.left, width - margin.right]);
     let yScale = d3.scaleLinear()
                    .domain([0, d3.max(data)])
@@ -49,6 +48,18 @@
     .call(yAxis)
     .attr('transform', `translate(${margin.left}, 0)`);
 
+    // 添加矩形
+    svg.append('g')
+    .attr('class', 'rect')
+    .selectAll('rect')
+    .data(data)
+    .enter()
+    .append('rect')
+    .attr('height', d => height - margin.bottom - yScale(d))
+    .attr('width', barWidth - barPadding)
+    .attr('x', (d, i) => xScale(i + 0.5))
+    .attr('y', d => yScale(d))
+    .attr('fill', '#1890ff')
   </script>
 </body>
 </html>
