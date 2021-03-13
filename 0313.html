@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3 demo</title>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    let body = d3.select('body').style("background-color", "#1890ff");
+    // 添加
+    body.append('p').text('hello world -0');
+    body.append('p').text('hello world -1');
+    body.append('p').text('hello world -2');
+    // 设置属性
+    body.selectAll('p').style('color', 'white');
+    body.select('p').style('color', 'red');
+
+    </script>
+</body>
+</html>
