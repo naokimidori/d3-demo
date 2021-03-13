@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3 demo</title>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    const data = [2, 4, 6, 8, 10, 12];
+    let body = d3.select('body').style("background-color", "#1890ff");
+    
+    // datum()
+    body.append('p').text('datum测试1');
+    body.append('p').text('datum测试2');
+
+    body.selectAll('p').datum(data).text(d => '数据绑定datum-' + d);
+
+    // data()
+    body.selectAll('p').data(data).enter().append('p').text(d => '数据绑定data-' + d);
+    /* 
+      结论!!!!!!!!!!!!!!!!!!!
+
+      数据绑定的计算 (update、enter、exit) 不能影响datum操作
+    */
+  </script>
+</body>
+</html>
