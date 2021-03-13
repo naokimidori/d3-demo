@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar</title>
+</head>
+<body>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script>
+    const data = [2, 4, 6, 8, 10];
+    const height = 400;
+    const width = 400;
+
+    const margin = {
+      top: 30,
+      left: 30,
+      bottom: 30,
+      right: 30,
+    }
+
+    // 柱状图间距
+    const barPadding = 10;
+    // 柱状图宽度(包含间距)
+    const barwidth = (width - margin.right - margin.left) / data.length;
+
+    let svg = d3.select('body').append('svg').attr('height', height).attr('width', width);
+
+    // 比例尺
+    let xScale = d3.scaleLinear()
+                   .domain([0, data.legnth])
+                   .range([margin.left, width - margin.right]);
+    let yScale = d3.scaleLinear()
+                   .domain([0, d3.max(data)])
+                   .range([height - margin.bottom, margin.top]);
+    // 坐标轴
+    let xAxis = d3.axisBottom(xScale).ticks(data.length);
+    let yAxis = d3.axisRight(yScale);
+    
+    // 添加坐标轴
+    svg.append('g')
+    .attr('class', 'xAxis')
+    .call(xAxis)
+    .attr('transform', `translate(0, ${height - margin.bottom})`);
+
+    svg.append('g')
+    .attr('class', 'yAxis')
+    .call(yAxis)
+    .attr('transform', `translate(${margin.left}, 0)`);
+
+  </script>
+</body>
+</html>
