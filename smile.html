@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3-demo</title>
+  </head>
+  <body>
+    <svg width="960" height="500"></svg>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+      const svg = d3.select('svg');
+      const height = +svg.attr('height');
+      const width = +svg.attr('width');
+      const g = svg.append('g')
+          .attr('transform',`translate(${ width / 2}, ${ height / 2})`)
+
+      const circle = g.append('circle')
+          .attr('r',height / 2)
+          .attr('fill', 'yellow')
+          .attr('stroke','black')
+
+      const eyeSpacing = 100;
+      const eyeYoffset = -80
+      const eyeRadius = 30;
+      const eyebrowWidth = 50;
+      const eyebrowHeight = 10;
+      const eyebrowYoffset = -150;
+
+
+    </script>
+  </body>
+</html>
